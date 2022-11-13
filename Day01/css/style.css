@@ -1,0 +1,67 @@
+h2 {
+    color: blue;
+    text-decoration: underline;
+    font-style: italic;
+    
+}
+
+.container {
+    position: relative;
+    height: 200px;
+    /* border: 2px solid #006100; */
+}
+
+.Avatar {
+  margin-left: 100px;
+  position: absolute;
+ 
+}
+
+.Name {
+    text-align: right;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+p.FirstLine {
+    font-weight: bold;
+}
+
+.Presentation {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.Academic {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.Languages {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.Academic {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.Other{
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.Training {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.Experience {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+
+
+
+
