@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 id="x-name">Hello</h1>
+
+<ul id="thuc-don">
+</ul>
+<input type="text" name="search" id="ten" placeholder="Search..." value="" onmouseenter="textInput()" onmouseleave="Leave()">
+
+<button style="cursor: pointer" onclick="userClick()" onmouseenter="userMouseIn()">
+    Chọn Món
+</button>
+
+<br>
+<br>
+<br>
+<h3>Thực đơn TODAY</h3>
+<select name="city" id="thanh-pho" onchange="userClick()">
+    <option value="">Bánh Mì</option>
+    <option value="">Mì Tôm</option>
+    <option value="">Phở Bò Tái</option>
+</select>
+
+<h3>Giá</h3>
+
+<select name="city" id="gia">
+    <option value="">10.000</option>
+    <option value="">20.000</option>
+    <option value="">30.000</option>
+</select>
+<script src="script.js"></script>
+<script src="script_2.js"></script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body>
+        <p>Tên thành phố: <b id="thanh-pho"></b></p>
+        <p>Nhiệt độ: <b id="nhiet-do"></b><sup> o </sup>C</p>
+<!--        <p id="trang-thai"></p>-->
+        <p>Độ ẩm: <b id="do-am"></b> %</p>
+        <p>Áp suất: <b id="ap-suat"></b> Pa</p>
+        <p>Trạng thái: <b id="trang-thai"></b></p>
+        <p><img src="" alt="icon" id="icon"></p>
+
+        <select name="chon_thanh_pho" id="chon_thanh_pho" onchange="weather()">
+            <option value="hanoi">Hà Nội</option>
+            <option value="saigon">Sài Gòn</option>
+            <option value="tokyo">Tokyo</option>
+            <option value="korea">Korea</option>
+            <option value="macau">Macau</option>
+        </select>
+
+        <br><br>
+        <input type="text" name="input-city" id="input-city" value="hanoi" placeholder="Nhập tên thành phố...">
+        <button style="width: 50px;" type="buttom" name="input-city" onclick="weather()">OK</button>
+
+    </div>
+
+
+    <script src="script-day08.js"></script>
+    <script type="text/javascript">
+        function weather() {
+            // Bước 1: Get data from web api
+            var xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                //Bước 2:
+                var result = this.responseText;
+                //Chuyển JSON sang object của JS (biến data lưu object)
+                var data = JSON.parse(result);
+                console.log(data);
+
+                //Lấy value của key tên là "Name"
+                var city_name = data.name;
+                var nhiet_do = data.main.temp;
+                var do_am = data.main.humidity;
+                var ap_suat = data.main.pressure;
+                var trang_thai = data.weather;
+
+                var content_trang_thai = "";
+                for (var i=0; i<trang_thai.length; i++) {
+                    content_trang_thai += trang_thai[i].description;
+                }
+
+                var icon = data.weather[0].icon;
+                var link_icon = `https://openweathermap.org/img/wn/${icon}@2x.png`
+
+                //Fill dữ liệu vào các thẻ
+                document.getElementById("thanh-pho").innerText = city_name;
+                document.getElementById("nhiet-do").innerText = nhiet_do;
+                document.getElementById("do-am").innerText = do_am;
+                document.getElementById("ap-suat").innerText = ap_suat;
+                document.getElementById("trang-thai").innerText = content_trang_thai;
+                document.getElementById("icon").src = link_icon;
+
+
+            }
+            //Tạo biến để lưu value
+            var select_option = document.getElementById("chon_thanh_pho").value;
+
+            //Tạo biến để lưu value
+            var get_input_value = document.getElementById("input-city").value;
+            xhttp.open("GET",`https://api.openweathermap.org/data/2.5/weather?q=${get_input_value},vietnam&appid=09a71427c59d38d6a34f89b47d75975c&units=metric`);
+            xhttp.send();
+        }
+
+        weather();
+
+    </script>
+</body>
+</html>
